@@ -1,6 +1,6 @@
 package lesson2
 
-const val sixty = 60
+const val HourInMinute = 60
 
 fun main() {
     val departTimeHour = 9
@@ -8,11 +8,11 @@ fun main() {
 
     val travelTimeMinute = 457
 
-    val departTimeHourInMinute = departTimeHour * sixty
+    val departTimeHourInMinute = departTimeHour * HourInMinute
 
     val arrivalTimeInMinute = departTimeHourInMinute + departTimeMinute + travelTimeMinute
-    val hourOfArrival = arrivalTimeInMinute / sixty
-    val minuteOfArrival = arrivalTimeInMinute % sixty
+    val hourOfArrival = arrivalTimeInMinute / HourInMinute
+    val minuteOfArrival = arrivalTimeInMinute % HourInMinute
 
     println("Время прибытия: $hourOfArrival:$minuteOfArrival")
 }
