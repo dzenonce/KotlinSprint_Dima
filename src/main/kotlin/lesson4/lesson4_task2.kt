@@ -12,7 +12,7 @@ fun main() {
     val secondCargoCapacity = 100
 
     println("""
-        Груз с весом $firstCargoKg кг и объемом $firstCargoCapacity л соответствует категории 'Average': ${ (firstCargoKg >= MINIMUM_WEIGHT) && (firstCargoCapacity < MAXIMUM_CAPACITY) }
-        Груз с весом $secondCargoKg кг и объемом $secondCargoCapacity л соответствует категории 'Average': ${ (secondCargoKg >= MINIMUM_WEIGHT) && (secondCargoCapacity < MAXIMUM_CAPACITY) }
+        Груз с весом $firstCargoKg кг и объемом $firstCargoCapacity л соответствует категории 'Average': ${ (firstCargoKg >= MINIMUM_WEIGHT) && (firstCargoKg <= MAXIMUM_WEIGHT) && (firstCargoCapacity < MAXIMUM_CAPACITY) }
+        Груз с весом $secondCargoKg кг и объемом $secondCargoCapacity л соответствует категории 'Average': ${ (secondCargoKg >= MINIMUM_WEIGHT) && (firstCargoKg <= MAXIMUM_WEIGHT) && (secondCargoCapacity < MAXIMUM_CAPACITY) }
     """.trimIndent())
 }
