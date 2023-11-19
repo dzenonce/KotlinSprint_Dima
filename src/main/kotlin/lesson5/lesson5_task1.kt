@@ -1,16 +1,14 @@
 package lesson5
 
-import kotlin.random.Random
-
 fun main() {
 
-    val firstNumber = Random.nextInt(0, 10)
-    val secondNumber = Random.nextInt(0, 10)
+    val firstNumber = (0..10).random()
+    val secondNumber = (0..10).random()
 
     val captchaForUser = "$firstNumber + $secondNumber"
 
     println("Введите решение уравнения $captchaForUser ")
-    val userInput = readLine()!!.toInt()
+    val userInput = readln()?.toInt()
 
     val captcha = firstNumber + secondNumber
 
