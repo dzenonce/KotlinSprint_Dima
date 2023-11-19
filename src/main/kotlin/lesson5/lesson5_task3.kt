@@ -1,11 +1,9 @@
 package lesson5
 
-import kotlin.random.Random
-
 fun main() {
 
-    val gameNumberOne = Random.nextInt(0, 43)
-    val gameNumberTwo = Random.nextInt(0, 43)
+    val gameNumberOne = (0..42).random()
+    val gameNumberTwo = (0..42).random()
 
     println(
         """
@@ -18,10 +16,10 @@ fun main() {
         Поехали, введи первое число и нажми Enter
     """.trimIndent()
     )
-    val userNumberOne = readLine()!!.toInt()
+    val userNumberOne = readln()?.toInt()
 
     println("Отлично! Теперь введи второе число и нажми Enter")
-    val userNumberTwo = readLine()!!.toInt()
+    val userNumberTwo = readln()?.toInt()
 
     if ((userNumberOne == gameNumberOne) && (userNumberTwo == gameNumberTwo) || (userNumberOne == gameNumberTwo) && (userNumberTwo == gameNumberOne))
         println("Поздравляем! Вы выиграли главный приз!")
