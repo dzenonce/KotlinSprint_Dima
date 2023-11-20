@@ -16,13 +16,13 @@ fun main() {
     )
 
     println("Введите первое число: ")
-    val userInputNumberOne = readln()?.toInt()
+    val userInputNumberOne = readln().toInt()
 
     println("Введите второе число: ")
-    val userInputNumberTwo = readln()?.toInt()
+    val userInputNumberTwo = readln().toInt()
 
     println("Введите третье число: ")
-    val userInputNumberThree = readln()?.toInt()
+    val userInputNumberThree = readln().toInt()
 
     val userInputs = listOf(userInputNumberOne, userInputNumberTwo, userInputNumberThree)
 
