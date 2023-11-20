@@ -8,7 +8,7 @@ fun main() {
     val captchaForUser = "$firstNumber + $secondNumber"
 
     println("Введите решение уравнения $captchaForUser ")
-    val userInput = readln()?.toInt()
+    val userInput = readln().toInt()
 
     val captcha = firstNumber + secondNumber
 
