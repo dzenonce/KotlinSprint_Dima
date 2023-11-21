@@ -3,17 +3,13 @@ package lesson4
 fun main() {
     val trainingDayNumber = 5
 
-    val whatsTraining = trainingDayNumber % 2
-
-    val isArmAbsWorkout = whatsTraining != 0
-    val isLegBackWorkout = whatsTraining == 0
-
+    val isEvenDay = trainingDayNumber % 2
 
     val trainingShedule = """
-    Упражнения для рук:     $isArmAbsWorkout
-    Упражнения для ног:     $isLegBackWorkout
-    Упражнения для спины:   $isLegBackWorkout
-    Упражнения для пресса:  $isArmAbsWorkout
+    Упражнения для рук:     ${isEvenDay != 0}
+    Упражнения для ног:     ${isEvenDay == 0}
+    Упражнения для спины:   ${isEvenDay == 0}
+    Упражнения для пресса:  ${isEvenDay != 0}
     """.trimIndent()
 
     println(trainingShedule)
