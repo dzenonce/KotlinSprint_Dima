@@ -20,7 +20,7 @@ fun main() {
 
     if (isShipReadyNow != true) {
         val isShipAndCrewReady =
-            (hasShipDamage != HAS_DAMAGE_SHIP) && (crewSize == MAXIMUM_CREW) && (isSunnyWeather == IS_SUNNY_WEATHER) && (amountProvision >= MINIMUM_SUPPLY_CRATES)
+            (crewSize == MAXIMUM_CREW) && (isSunnyWeather == IS_SUNNY_WEATHER) && (amountProvision >= MINIMUM_SUPPLY_CRATES)
         println("Может ли поврежденный корабль уйти в море: $isShipAndCrewReady")
     }
 
