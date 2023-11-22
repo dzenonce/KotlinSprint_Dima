@@ -10,8 +10,7 @@ fun main() {
         println("Введите ваш код:")
         val userInputCode = readln().toInt()
 
-        val isCorrectSmsCode = userInputCode == smsCode
-    } while (!isCorrectSmsCode)
+    } while (userInputCode != smsCode)
 
     println("Авторизация успешна!")
 }
