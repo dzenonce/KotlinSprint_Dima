@@ -9,13 +9,10 @@ fun main() {
     var password = ""
 
     for (i in 0 until randomPasswordLength) {
-        val randomCharInLowerCase = ('a'..'z').random().toString()
-        val randomCharInApperCase = ('A'..'Z').random().toString()
-        val randomNumber = (0..9).random().toString()
 
-        val arrayRandomCharset = arrayOf(randomCharInLowerCase, randomCharInApperCase, randomNumber)
+        val letters = listOf(('a'..'z'), ('A'..'Z'), (0..9)).flatten().random()
 
-        password += arrayRandomCharset.random()
+        password += letters
     }
 
     println(password)
