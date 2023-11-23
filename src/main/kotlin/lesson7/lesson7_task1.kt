@@ -2,14 +2,13 @@ package lesson7
 
 fun main() {
 
+    val randomLetter = 'a'..'z'
+    val randomNumber = 0..9
+
     var password = ""
 
     for (i in 0..2) {
-        val randomLetter = ('a'..'z').random().toString()
-        val randomNumber = (0..9).random().toString()
-
-        password += randomLetter + randomNumber
-
+        password += randomLetter.random().toString() + randomNumber.random().toString()
     }
     println(password)
 }
