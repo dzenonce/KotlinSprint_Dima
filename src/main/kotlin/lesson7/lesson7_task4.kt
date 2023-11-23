@@ -7,7 +7,6 @@ fun main() {
     for (remainingTime in userTimeInput downTo 1) {
         println("До конца таймера осталось: $remainingTime")
         Thread.sleep(1000)
-
-        if (remainingTime == 1) println("Время вышло!")
     }
+    println("Время вышло!")
 }
