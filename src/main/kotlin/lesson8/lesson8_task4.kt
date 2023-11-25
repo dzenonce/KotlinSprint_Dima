@@ -3,9 +3,7 @@ package lesson8
 fun main() {
     val recipeIngredients = arrayOf("Яйцо", "Картошка", "Фарш", "Зелень")
 
-    for (ingredients in recipeIngredients) {
-        println("В рецепте есть $ingredients")
-    }
+    println("В рецепте есть ${recipeIngredients.joinToString()}")
 
     println("\nКакой ингредиент вы хотите изменить?")
     val ingredientForChange = readln()
@@ -17,9 +15,7 @@ fun main() {
         val indexForReplace = recipeIngredients.indexOf(ingredientForChange)
         recipeIngredients[indexForReplace] = newIngredient
 
-        for (ingredients in recipeIngredients) {
-            println("В рецепте есть $ingredients")
-        }
+        println("В рецепте есть ${recipeIngredients.joinToString()}")
 
     } else println("Выбранного вами ингредиента нет в списке")
 
