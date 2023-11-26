@@ -3,8 +3,7 @@ package lesson9
 fun main() {
     val ingredientList = mutableListOf("Яйцо", "Зелень", "Картошка")
 
-    println("В рецепте есть базовые ингредиенты: ")
-    ingredientList.forEach() { println(it) }
+    println("В рецепте есть базовые ингредиенты: ${ingredientList.joinToString()} ")
 
     println("Желаете добавить еще? Да/Нет")
     val yesOrNoInput = readln()
@@ -15,12 +14,8 @@ fun main() {
 
         ingredientList.add(appendIngredient)
 
-        println("Теперь в рецепте есть следующие ингредиенты: ")
-        ingredientList.forEach() { println(it) }
+        println("Теперь в рецепте есть следующие ингредиенты: ${ingredientList.joinToString()}")
 
-    } else {
-        return
-    }
-
+    } else return
 
 }
