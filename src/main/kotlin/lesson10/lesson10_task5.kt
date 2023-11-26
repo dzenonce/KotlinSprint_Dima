@@ -2,6 +2,7 @@ package lesson10
 
 //import io.jsonwebtoken.Jwts
 //import io.jsonwebtoken.SignatureAlgorithm
+//import io.jsonwebtoken.security.Keys
 //import java.util.*
 
 fun main() {
@@ -42,17 +43,17 @@ fun tokenGenerate(): String {
 
 // Генерим токен и возвращаем его
 //fun tokenGenerate(userInputLogin: String): String {
-//    val secretKey = "SK"
+//    val secretKey = "Keys"
 //    val expirationTimeInMinute = 30
 //
-//    val now = System.currentTimeMillis()
-//    val expirationDate = Date(now + expirationTimeInMinute * 60 * 1000)
+//    val now = Date()
+//    val expirationDate = Date(now.time + expirationTimeInMinute * 60 * 1000)
 //
 //    return Jwts.builder()
 //        .setSubject(userInputLogin)
-//        .setIssuedAd(now)
+//        .setIssuedAt(now)
 //        .setExpiration(expirationDate)
-//        .signWith(secretKey)
+//        .signWith(SignatureAlgorithm.HS256, secretKey)
 //        .compact()
 //
 //}
