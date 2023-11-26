@@ -7,9 +7,7 @@ fun main() {
     println("Введите 5 ингредиентов: ")
 
     for (i in 0 until 5) {
-        val userIngredientsInput = readln()
-
-        listIngredients.add(userIngredientsInput)
+        listIngredients.add(readln())
     }
 
     val sortedList = listIngredients.sorted().joinToString(separator = ", ") { it.capitalize() }
