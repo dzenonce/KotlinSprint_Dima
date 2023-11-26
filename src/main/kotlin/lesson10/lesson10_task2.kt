@@ -19,12 +19,12 @@ fun main() {
 
 }
 
-fun credentialValidate(userLogin : String, userPassword : String) : Boolean {
-        val isResult =
-            if ((userLogin.length <= MINIMAL_CREDENTIAL_LENGTH) || (userPassword.length <= MINIMAL_CREDENTIAL_LENGTH)) true
-            else false
+fun credentialValidate(userLogin: String, userPassword: String): Boolean {
+    val isResult =
+        if ((userLogin.length <= MINIMAL_CREDENTIAL_LENGTH) || (userPassword.length <= MINIMAL_CREDENTIAL_LENGTH)) true
+        else false
 
-        return isResult
+    return isResult
 }
 
 const val MINIMAL_CREDENTIAL_LENGTH = 4
