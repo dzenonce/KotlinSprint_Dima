@@ -5,8 +5,7 @@ fun main() {
 
     var i = 0
 
-    val array =
-        Array(readln().toInt()) {
+    val array = Array(readln().toInt()) {
             println("Введите ингредиент ${++i}")
             readln()
         }
