@@ -6,9 +6,8 @@ fun main() {
     println("В рецепте есть базовые ингредиенты: ${ingredientList.joinToString()} ")
 
     println("Желаете добавить еще? Да/Нет")
-    val yesOrNoInput = readln()
 
-    if (yesOrNoInput.toLowerCase() == "да" ) {
+    if (readln().equals("да", true)) {
         println("Какой ингредиент вы хотите добавить?")
         val appendIngredient = readln()
 
