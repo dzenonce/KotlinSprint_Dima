@@ -5,12 +5,12 @@ fun main() {
 
     var i = 0
 
-    val arrayIngredient =
+    val array =
         Array(readln().toInt()) {
             println("Введите ингредиент ${++i}")
             readln()
         }
 
     println("В рецепте теперь:")
-    arrayIngredient.forEach { ingredients -> println(ingredients) }
+    array.forEach { println(it) }
 }
