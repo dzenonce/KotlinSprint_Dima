@@ -14,7 +14,7 @@ fun passwordGenerate(passLength: Int) : String {
     var password = ""
 
     for (i in 1..passLength / 2) {
-        password += numeric.random().toString() + wildcards.random().toString()
+        password += numeric.random().toString() + wildcards.random()
     }
 
     return password
