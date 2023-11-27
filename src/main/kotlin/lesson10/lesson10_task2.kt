@@ -9,20 +9,20 @@ fun main() {
         println("Введите пароль: ")
         val userPassword = readln()
 
-        val isValidCredential = credentialValidate(userLogin, userPassword)
+        val isValidCredential = validateCredentials(userLogin, userPassword)
 
-        if (isValidCredential) println("Логин или пароль недостаточно длинные")
+        if (!isValidCredential) println("Логин или пароль недостаточно длинные")
 
-    } while (isValidCredential)
+    } while (!isValidCredential)
 
     println("Регистрация прошла успешно, доступ разрешен!")
 
 }
 
-fun credentialValidate(userLogin: String, userPassword: String): Boolean {
+fun validateCredentials(userLogin: String, userPassword: String): Boolean {
     val isResult =
-        if ((userLogin.length <= MINIMAL_CREDENTIAL_LENGTH) || (userPassword.length <= MINIMAL_CREDENTIAL_LENGTH)) true
-        else false
+        if ((userLogin.length < MINIMAL_CREDENTIAL_LENGTH) || (userPassword.length < MINIMAL_CREDENTIAL_LENGTH)) false
+        else true
 
     return isResult
 }
