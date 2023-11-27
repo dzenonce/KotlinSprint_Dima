@@ -15,4 +15,4 @@ fun main() {
     println(gameResult)
 }
 
-fun rollDice() : Int = (1..6).random()
+fun rollDice(): Int = (1..6).random()
