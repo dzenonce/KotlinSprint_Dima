@@ -7,7 +7,7 @@ fun main() {
     println(password)
 }
 
-fun passwordGenerate(passLength: Int) : String {
+fun passwordGenerate(passLength: Int): String {
     val numeric = 0..9
     val wildcards = "!\"#\$%&'()*+,-./ "
 
