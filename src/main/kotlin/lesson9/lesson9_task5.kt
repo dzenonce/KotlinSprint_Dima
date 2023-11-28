@@ -11,6 +11,7 @@ fun main() {
     }
 
     val sortedList = listIngredients.sorted().joinToString(separator = ", ") { it.capitalize() }
+
     sortedList.forEach() { print(it) }
 
 }
