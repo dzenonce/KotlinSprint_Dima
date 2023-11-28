@@ -8,36 +8,35 @@ fun main() {
     do {
         println("Добро пожаловать в игру! Раунд ${++roundNumber}.")
 
-        val humanRice = riceRoll()
-        println("Человек бросил кости! Результат: $humanRice")
+        val humanDice = rollDice()
+        println("Человек бросил кости! Результат: $humanDice")
 
-        val machineRice = riceRoll()
-        println("Машина бросила кости! Результат: $machineRice\n")
+        val machineDice = rollDice()
+        println("Машина бросила кости! Результат: $machineDice\n")
 
-        val whoWon = roundResult(humanRice, machineRice)
+        val whoWon = roundResult(humanDice, machineDice)
         if (whoWon == "Человек") {
             println("Человек победил!")
             humanWons++
         } else if (whoWon == "Машина") println("Победила машина!")
-            else println("Ничья!")
+        else println("Ничья!")
 
         println("\nХотите продолжить? Да/Нет")
-        val userContinue = readln()
 
         val isWantToCountnue =
-            if (userContinue.toLowerCase() == "да") true
+            if (readln().equals("да", false)) true
             else false
     } while (isWantToCountnue)
 
     println("\nЧеловек победил в $humanWons раундах из $roundNumber")
 }
 
-fun riceRoll(): Int = (1..6).random()
+fun rollDice(): Int = (1..6).random()
 
-fun roundResult(humanRice: Int, machineRice: Int): String {
+fun roundResult(humanDice: Int, machineDice: Int): String {
     val whoWon =
-        if (humanRice > machineRice) "Человек"
-        else if (humanRice < machineRice) "Машина"
+        if (humanDice > machineDice) "Человек"
+        else if (humanDice < machineDice) "Машина"
         else "Ничья"
 
     return whoWon
