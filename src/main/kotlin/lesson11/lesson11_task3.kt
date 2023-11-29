@@ -21,8 +21,7 @@ class ChatRoom(
     val roomCover: String = "DefaultRoomCover.jpg",
     val roomName: String,
     val membersList: List<String>,
-) {
-}
+)
 
 fun main() {
 
