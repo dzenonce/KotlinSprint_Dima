@@ -5,9 +5,7 @@ class UserData(
     val login: String,
     val password: String,
     val email: String,
-) {
-
-}
+)
 
 fun main() {
 
