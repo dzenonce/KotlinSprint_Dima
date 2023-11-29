@@ -16,9 +16,9 @@ fun main() {
 }
 
 fun verifyUser(userInputLogin: String, userInputPassword: String): String? =
-    if ((userInputLogin == USER_LOGIN) && (userInputPassword == USER_PASSWORD)) tokenGenerate() else null
+    if ((userInputLogin == USER_LOGIN) && (userInputPassword == USER_PASSWORD)) generateToken() else null
 
-fun tokenGenerate(): String {
+fun generateToken(): String {
     val chars = listOf(('a'..'z'), ('A'..'Z'), ('0'..'9')).flatten()
     var token = ""
 
