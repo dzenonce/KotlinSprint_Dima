@@ -6,12 +6,7 @@ class Card(
     var company: String? = null,
 ) {
 
-    fun printContactInfo() {
-        if (company == null) company = "<не указано>"
-
-        println("-Имя: $name \n-Номер: $telNumber \n-Компания: $company")
-
-    }
+    fun printContactInfo() = println("-Имя: $name \n-Номер: $telNumber \n-Компания: ${company ?: "<не указано>"}")
 
 }
 
