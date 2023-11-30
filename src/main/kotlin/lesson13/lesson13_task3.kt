@@ -4,9 +4,7 @@ class Contact(
     val name: String,
     val telNumber: Long,
     var company: String? = null,
-) {
-
-}
+)
 
 fun main() {
 
