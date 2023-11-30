@@ -12,11 +12,7 @@ fun main() {
         listIngredients.add(readln())
     }
 
-    val sortedList = listIngredients.sorted().joinToString(separator = ", ") { it.replaceFirstChar {
-        if (it[0].isLowerCase()) it.titlecase(
-            Locale.getDefault()
-        ) else it.toString()
-    } }
+    val sortedList = listIngredients.sorted().joinToString(separator = ", ").replaceFirstChar { it.uppercase() }
 
     sortedList.forEach() { print(it) }
 
