@@ -21,7 +21,7 @@ class Forum(
     fun createNewMessage(user: ForumMember, message: String) {
         val forum = Forum()
 
-        for (i in 0 .. memberList.size) {
+        for (i in 1 .. memberList.size) {
             if (forum.memberList[i].userId.equals(user.userId)) println("Есть $message")
             else println("Нет")
         }
