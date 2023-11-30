@@ -1,34 +1,42 @@
 package lesson12
 
-class DayWeather(dayTemperature: Int, nightTemperature: Int, isPrecipitationInDay: Boolean) {
+class DayWeather {
 
-    init {
-        println("Создан объект с параметрами: $dayTemperature, $nightTemperature, $isPrecipitationInDay")
+    var dayTemperature = 0.0
+    var nightTemperature = 0.0
+    var isPrecipitationInDay = false
+
+    fun printWeather() {
+        println("Температура днем: $dayTemperature \nТемпература ночью: $nightTemperature \nОсадки: $isPrecipitationInDay")
     }
 
-    var anotherVariable = "Условия переменной"
-    var twoAnother = "Другие условия"
+    var another = "Какое-то значение"
 
 }
 
 fun main() {
 
-    val day1 = DayWeather(2, 4, true)
-    val day2 = DayWeather(1, 3, false)
+    val day1 = DayWeather()
+    val day2 = DayWeather()
 
-    day1.anotherVariable = "Другое"
-    day1.twoAnother = "Совсем другое"
+    day1.dayTemperature = 2.2
+    day1.nightTemperature = 3.0
+    day1.isPrecipitationInDay = false
 
-    day2.anotherVariable = "Другое2"
-    day2.twoAnother = "Совсем другое2"
+    day1.printWeather()
 
+    day1.another = "Гулять можно"
+    println(day1.another)
 
+    day2.dayTemperature = 1.2
+    day2.nightTemperature = 4.6
+    day2.isPrecipitationInDay = true
 
-    println(day1.anotherVariable)
-    println(day1.twoAnother)
+    println()
+    day2.printWeather()
 
-    println(day2.anotherVariable)
-    println(day2.twoAnother)
+    day2.another = "Гулять нельзя"
+    println(day2.another)
 
 
 }
