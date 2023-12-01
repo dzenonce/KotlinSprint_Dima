@@ -1,8 +1,10 @@
 package lesson12
 
-class Weather(val dayTemperature: Int, val nightTemperature: Int, val isPrecipitationInDay: Boolean) {
-
-}
+class Weather(
+    val dayTemperature: Int,
+    val nightTemperature: Int,
+    val isPrecipitationInDay: Boolean
+)
 
 fun main() {
 
