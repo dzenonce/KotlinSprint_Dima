@@ -1,24 +1,28 @@
 package lesson12
 
-class WeatherDay() {
+class WeatherDay(_dayTemperature: Int, _nightTemperature: Int, _isPrecipitationInDay: Boolean) {
 
-    var dayTemperature: Int = 0
-    var nightTemperature: Int = 0
-    var isPrecipitationInDay: Boolean = false
+    val dayTemperature = _dayTemperature - ZERO_IN_KELVIN
+    val nightTemperature = _nightTemperature - ZERO_IN_KELVIN
+    val isPrecipitationInDay = _isPrecipitationInDay
 
     fun printWeather() {
-        println("Температура днем: ${ dayTemperature - 273 } \nТемпература ночью: ${ nightTemperature - 273 } \nОсадки: $isPrecipitationInDay")
+        println("Температура днем: $dayTemperature \nТемпература ночью: $nightTemperature \nОсадки: $isPrecipitationInDay")
     }
 
 }
 
+const val ZERO_IN_KELVIN = 273
+
 fun main() {
 
-    val days = WeatherDay().apply {
-        dayTemperature = 300
-        nightTemperature = 290
-    }
+    val days = WeatherDay(
+        _dayTemperature = 300,
+        _nightTemperature = 290,
+        _isPrecipitationInDay = true,
+    )
 
     days.printWeather()
 
 }
+
