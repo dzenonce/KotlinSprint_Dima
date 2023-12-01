@@ -1,6 +1,10 @@
 package lesson12
 
-class WeatherDay(_dayTemperature: Int, _nightTemperature: Int, _isPrecipitationInDay: Boolean) {
+class WeatherDay(
+    _dayTemperature: Int,
+    _nightTemperature: Int,
+    _isPrecipitationInDay: Boolean
+) {
 
     val dayTemperature = _dayTemperature - ZERO_IN_KELVIN
     val nightTemperature = _nightTemperature - ZERO_IN_KELVIN
