@@ -1,15 +1,30 @@
 package lesson12
 
-class WeatherIn(var dayTemperature: Int, var nightTemperature: Int, var isPrecipitationInDay: Boolean) {
+class WeatherDay(
+    _dayTemperature: Int,
+    _nightTemperature: Int,
+    _isPrecipitationInDay: Boolean
+) {
+
+    val dayTemperature = _dayTemperature - ZERO_IN_KELVIN
+    val nightTemperature = _nightTemperature - ZERO_IN_KELVIN
+    val isPrecipitationInDay = _isPrecipitationInDay
 
     init {
-        println("Объект создан \nТемпература днем: ${ dayTemperature - 273 } \nТемпература ночью: ${ nightTemperature - 273 } \nОсадки: $isPrecipitationInDay")
+        println("Температура днем: $dayTemperature \nТемпература ночью: $nightTemperature \nОсадки: $isPrecipitationInDay")
     }
 
 }
 
+const val ZERO_IN_KELVIN = 273
+
 fun main() {
 
-    val dayWeather = WeatherIn(300, 270, false)
+    val days = WeatherDay(
+        _dayTemperature = 300,
+        _nightTemperature = 290,
+        _isPrecipitationInDay = true,
+    )
 
 }
+
