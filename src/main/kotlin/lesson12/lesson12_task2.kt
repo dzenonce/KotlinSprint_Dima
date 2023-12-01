@@ -1,6 +1,10 @@
 package lesson12
 
-class WeatherInDay(val dayTemperature: Double, val nightTemperature: Double, val isPrecipitationInDay: Boolean) {
+class WeatherInDay(
+    val dayTemperature: Double,
+    val nightTemperature: Double,
+    val isPrecipitationInDay: Boolean
+) {
 
     fun printWeather() {
         println("Температура днем: $dayTemperature \nТемпература ночью: $nightTemperature \nОсадки: $isPrecipitationInDay")
