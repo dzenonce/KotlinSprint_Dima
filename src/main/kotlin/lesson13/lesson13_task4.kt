@@ -4,8 +4,7 @@ class ContactCard(
     val name: String,
     val tel: Long?,
     var company: String? = null,
-
-    ) {
+) {
 
     fun printInfo() {
         println("Имя: $name \nТелефон: $tel \nКомпания: $company\n")
