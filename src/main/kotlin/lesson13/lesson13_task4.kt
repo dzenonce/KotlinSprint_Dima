@@ -24,7 +24,7 @@ fun main() {
         if (name.equals("стоп", ignoreCase = true)) break
 
         println("Введите номер телефона:")
-        val tel = readLine()?.toLongOrNull()
+        val tel = readln()?.toLongOrNull()
 
         if (tel == null) {
             println("Поле не может быть пустым")
@@ -32,7 +32,7 @@ fun main() {
         }
 
         println("Введите название компании (Можно пропустить, нажав enter):")
-        val company = readln().trim().takeIf { it.isNotBlank() }
+        val company = readln().takeIf { it.isNotBlank() }
 
         contactList.add(ContactCard(name, tel, company))
 
