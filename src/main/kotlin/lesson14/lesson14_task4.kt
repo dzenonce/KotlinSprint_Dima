@@ -40,8 +40,7 @@ fun main() {
         isPlanetarySuitability = false,
     )
 
-    planet.listSatellite.add(satellite1)
-    planet.listSatellite.add(satellite2)
+    planet.listSatellite.addAll(arrayOf(satellite1, satellite2))
 
     println("У планеты ${planet.name} есть спутники:")
     planet.listSatellite.forEach() { println(it.name) }
