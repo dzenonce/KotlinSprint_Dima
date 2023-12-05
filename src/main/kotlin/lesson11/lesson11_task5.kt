@@ -1,20 +1,20 @@
 package lesson11
 
-class Forum(
-    val memberList: MutableList<ForumMember> = mutableListOf(),
-    val forumMessage: MutableList<ForumMessage> = mutableListOf(),
-) {
+class Forum {
+
+    val memberList: MutableList<ForumMember> = mutableListOf()
+    val forumMessage: MutableList<ForumMessage> = mutableListOf()
 
     fun newForumMember(userName: String): ForumMember {
         var userCount = memberList.size
 
-        val userName = ForumMember(
+        val newUser = ForumMember(
             userId = userCount + 1,
             userName = userName,
         )
 
-        memberList.add(userName)
-        return userName
+        memberList.add(newUser)
+        return newUser
 
     }
 
@@ -25,7 +25,7 @@ class Forum(
                     authorId = userId,
                     message = _message,
                 )
-            forumMessage.add(forumSms)
+                forumMessage.add(forumSms)
             }
         }
     }
@@ -48,8 +48,7 @@ class ForumMember(
 class ForumMessage(
     val authorId: Int,
     val message: String,
-
-    )
+)
 
 fun main() {
 
