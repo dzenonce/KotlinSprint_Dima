@@ -1,5 +1,7 @@
 package lesson14
 
+import kotlin.math.PI
+
 abstract class Figure(
     val color: String,
 ) {
@@ -35,22 +37,28 @@ class Rectangle(
 
 fun main() {
 
-    val circle1 = Circle("Белый", 4.0)
-    val rectangle1 = Rectangle("Белый", 3.0, 4.0)
+    val circle1 = Circle(WHITE_COLOR, 4.0)
+    val rectangle1 = Rectangle(WHITE_COLOR, 3.0, 4.0)
 
-    val circle2 = Circle("Черный", 6.0)
-    val rectangle2 = Rectangle("Черный", 2.0, 7.0)
+    val circle2 = Circle(BLACK_COLOR, 6.0)
+    val rectangle2 = Rectangle(BLACK_COLOR, 2.0, 7.0)
 
-    val whiteFigure = listOf(circle1, rectangle1)
-    val blackFigure = listOf(circle2, rectangle2)
+    val figureList = listOf(circle1, rectangle1, circle2, rectangle2)
 
-    val sumAreaWhite = whiteFigure.sumOf { it.calculateArea() }
-    val sumPerimeterBlack = whiteFigure.sumOf { it.calculatePerimeter() }
+    var sumAreaWhite = 0.0
+    var sumPerimeterBlack = 0.0
+
+    figureList.forEach() {
+        if (it.color.equals(WHITE_COLOR, ignoreCase = true))
+            sumAreaWhite += it.calculateArea()
+        else if (it.color.equals(BLACK_COLOR, ignoreCase = true))
+            sumPerimeterBlack += it.calculatePerimeter()
+    }
 
     println("Сумма периметров всех черных фигур: $sumPerimeterBlack")
-    println("Сумма площадей всех белых фигур: $sumAreaWhite")
+    println("Сумма площадей всех белых фигур: ${sumAreaWhite}")
 
 }
 
-const val PI = 3.14
-
+const val WHITE_COLOR = "Белый"
+const val BLACK_COLOR = "Черный"
