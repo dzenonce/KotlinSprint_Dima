@@ -2,56 +2,52 @@ package lesson14
 
 class Chat {
 
-    val chatMessage: MutableList<Message> = mutableListOf()
+    val messageList: MutableList<Message> = mutableListOf()
 
-    fun addMessage(authorMessage: String, messageText: String) {
-        val parentMessage = Message(
-            parentId = chatMessage.size,
-            author = authorMessage,
-            text = messageText,
+    fun addMessage(_author: String, _text: String) {
+        val newMessage = Message(
+            id = messageList.size,
+            author = _author,
+            text = _text,
         )
-
-        chatMessage.add(parentMessage)
+        messageList.add(newMessage)
     }
 
-    fun addThreadMessage(parentMessageId: Int, authorMessage: String, messageText: String) {
-        val childMessage = ChildMessage(
-            childMessageId = chatMessage.size,
-            parentId = parentMessageId,
-            author = authorMessage,
-            text = messageText,
-        )
-
-        chatMessage.add(childMessage)
+    fun addThreadMessage(_author: String, _text: String, _parentMessageId: Int) {
+        val threadMessage = ChildMessage(
+            id = messageList.size,
+            author = _author,
+            text = _text,
+            parentMessageId = _parentMessageId,
+            )
+        messageList.add(threadMessage)
     }
 
     fun printChat() {
-        chatMessage.forEach() { println("${it.author}: ${it.text}") }
-        chatMessage.groupBy { println(it.parentId) }
+//        messageList.sortBy {  }
     }
+
 }
 
 open class Message(
-    val parentId: Int,
+    val id: Int,
     val author: String,
     val text: String,
 )
 
 class ChildMessage(
-    val childMessageId: Int,
-    parentId: Int,
+    id: Int,
     author: String,
     text: String,
-) : Message(parentId, author, text)
+    val parentMessageId: Int
+) : Message(id, author, text)
 
 fun main() {
 
     val chat = Chat()
 
-    chat.addMessage("Dima", "Привет, это первое сообщение")
+    chat.addMessage("Dima", "Привет 1")
 
-    chat.addThreadMessage(0, "None", "Да, привет")
-
-    chat.printChat()
+    chat.addThreadMessage("None", "Привет 2", chat.messageList[0].id)
 
 }
