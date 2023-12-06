@@ -19,12 +19,22 @@ class Chat {
             author = _author,
             text = _text,
             parentMessageId = _parentMessageId,
-            )
+        )
         messageList.add(threadMessage)
     }
 
     fun printChat() {
-//        messageList.sortBy {  }
+        messageList.forEach() {
+            if (it !is ChildMessage) {
+                messageList.groupBy { groupParent -> groupParent.id }
+                println("${it.author}: ${it.text}")
+            }
+            if (it is ChildMessage) {
+                messageList.groupBy { groupChild -> groupChild.id }
+                println("\t${it.author}: ${it.text}")
+            }
+        }
+
     }
 
 }
@@ -49,5 +59,8 @@ fun main() {
     chat.addMessage("Dima", "Привет 1")
 
     chat.addThreadMessage("None", "Привет 2", chat.messageList[0].id)
+    chat.addThreadMessage("ANone", "Привет 3", chat.messageList[0].id)
+
+    chat.printChat()
 
 }
