@@ -6,10 +6,9 @@ class Forum {
     val forumMessage: MutableList<ForumMessage> = mutableListOf()
 
     fun newForumMember(userName: String): ForumMember {
-        var userCount = memberList.size
 
         val newUser = ForumMember(
-            userId = userCount + 1,
+            userId = memberList.size,
             userName = userName,
         )
 
@@ -31,10 +30,12 @@ class Forum {
     }
 
     fun printThread() {
-        for (user in memberList) {
-            for (message in forumMessage) {
-                println("${user.userId}: ${message.message}")
+        for (message in forumMessage) {
+            val member = memberList.find { it.userId == message.authorId }
+            if (member != null) {
+                println("${member.userName}: ${message.message} ")
             }
+
         }
     }
 
