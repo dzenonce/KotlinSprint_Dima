@@ -35,7 +35,6 @@ class Forum {
             if (member != null) {
                 println("${member.userName}: ${message.message} ")
             }
-
         }
     }
 
