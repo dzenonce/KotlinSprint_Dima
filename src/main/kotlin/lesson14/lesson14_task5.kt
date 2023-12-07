@@ -26,7 +26,9 @@ class Chat {
     fun printChat() {
         messageList.forEach() {
             if (it !is ChildMessage) {
-                messageList.groupBy { groupParent -> groupParent.id }
+                // Возвращает список ключ значение
+                val groupById = messageList.groupBy { it.id }
+                println(groupById)
                 println("${it.author}: ${it.text}")
             }
             if (it is ChildMessage) {
