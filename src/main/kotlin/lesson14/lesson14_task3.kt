@@ -45,15 +45,11 @@ fun main() {
 
     val figureList = listOf(circle1, rectangle1, circle2, rectangle2)
 
-    var sumAreaWhite = 0.0
-    var sumPerimeterBlack = 0.0
+    val whiteFigureList = figureList.filter { it.color == WHITE_COLOR }
+    val blackFigureList = figureList.filter { it.color == BLACK_COLOR }
 
-    figureList.forEach() {
-        if (it.color.equals(WHITE_COLOR, ignoreCase = true))
-            sumAreaWhite += it.calculateArea()
-        else if (it.color.equals(BLACK_COLOR, ignoreCase = true))
-            sumPerimeterBlack += it.calculatePerimeter()
-    }
+    val sumAreaWhite = whiteFigureList.sumOf { it.calculateArea() }
+    val sumPerimeterBlack = blackFigureList.sumOf { it.calculatePerimeter() }
 
     println("Сумма периметров всех черных фигур: $sumPerimeterBlack")
     println("Сумма площадей всех белых фигур: ${sumAreaWhite}")
