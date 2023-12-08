@@ -8,20 +8,20 @@ interface Search {
 
 }
 
-abstract class Commodity(
-    val name: String,
-    val count: Int,
-)
+abstract class Commodity {
+    abstract val name: String
+    abstract val count: Int
+}
 
 class MusicalInstrument(
-    name: String,
-    count: Int,
-) : Commodity(name, count), Search
+    override val name: String,
+    override val count: Int,
+) : Commodity(), Search
 
 class Component(
-    name: String,
-    count: Int,
-) : Commodity(name, count)
+    override val name: String,
+    override val count: Int,
+) : Commodity()
 
 fun main() {
 
