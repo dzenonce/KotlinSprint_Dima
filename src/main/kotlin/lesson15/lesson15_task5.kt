@@ -29,49 +29,98 @@ interface TransportationCargo {
 
 }
 
-abstract class Transport : MovementCar ,TransportationPassenger{
-
-    abstract val type: String
-    abstract val passengerCount: Int
-    abstract val isCarryCargo: Boolean
-}
+abstract class Transport(
+    val passengerCount: Int,
+) : MovementCar, TransportationPassenger
 
 class Truck(
-    override val type: String,
-    override val passengerCount: Int,
-    override val isCarryCargo: Boolean,
-) : Transport(), TransportationCargo {
+    passengerCount: Int,
+    val cargoQuantity: Int,
+) : Transport(passengerCount), TransportationCargo {
 
     override fun loadPassenger() {
-        TODO("Not yet implemented")
+        val passengerLoadResult =
+            if (passengerCount <= MAX_PASSENGER_FOR_TRUCK) "Берем $passengerCount пассажира с собой"
+            else "Максимальное кол-во пассажиров $MAX_PASSENGER_FOR_TRUCK"
+
+        println(passengerLoadResult)
     }
 
     override fun unloadPassenger() {
-        TODO("Not yet implemented")
+        println("Высаживаем $passengerCount человек")
     }
 
     override fun loadCargo() {
-        TODO("Not yet implemented")
+        val resultLoadCargo = if (cargoQuantity <= MAX_CARGO_CAPACITY_TONNAGE) "Загружаем $cargoQuantity кг груза!"
+        else "Максимально допустимый вес груза $MAX_CARGO_CAPACITY_TONNAGE"
+
+        println(resultLoadCargo)
     }
 
     override fun unloadCargo() {
-        TODO("Not yet implemented")
+        println("Разгружаем $cargoQuantity кг груза!")
     }
 }
 
 class PassengerCar(
-    override val type: String,
-    override val passengerCount: Int,
-    override val isCarryCargo: Boolean,
-) : Transport() {
+    passengerCount: Int,
+) : Transport(passengerCount) {
 
     override fun loadPassenger() {
-        TODO("Not yet implemented")
+        val passengerLoadResult =
+            if (passengerCount <= MAX_PASSENGER_FOR_PASSENGER_CAR) "Берем $passengerCount человек с собой"
+            else "Максимальное кол-во пассажиров $MAX_PASSENGER_FOR_PASSENGER_CAR"
+
+        println(passengerLoadResult)
+
     }
 
     override fun unloadPassenger() {
-        TODO("Not yet implemented")
+        println("Высаживаем $passengerCount человек")
     }
+
+}
+
+fun main() {
+
+    val truck = Truck(
+        passengerCount = 1,
+        cargoQuantity = 2000,
+    )
+
+    val car = PassengerCar(
+        passengerCount = 3,
+    )
+
+    val car2 = PassengerCar(
+        passengerCount = 2,
+    )
+
+
+    truck.loadCargo()
+    truck.loadPassenger()
+    truck.startEngine()
+    truck.driveCar()
+    truck.stopCar()
+    truck.unloadPassenger()
+    truck.unloadCargo()
+
+    println()
+
+    car.loadPassenger()
+    car.startEngine()
+    car.driveCar()
+    car.stopCar()
+    car.unloadPassenger()
+
+    println()
+
+    car2.loadPassenger()
+    car2.startEngine()
+    car2.driveCar()
+    car2.stopCar()
+    car2.unloadPassenger()
+
 
 }
 
