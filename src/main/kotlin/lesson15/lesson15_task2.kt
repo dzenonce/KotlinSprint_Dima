@@ -15,12 +15,13 @@ class PrecipitationAmount(
 class WeatherServer {
 
     fun sendWeatherData(weatherData: WeatherStationStats) {
-        when (weatherData) {
-            is Temperature -> println("Отправляются данные о температуре")
-            is PrecipitationAmount -> println("Отправляются данные о влажности")
-            else -> println("Тип данных не определен")
+        if (weatherData is Temperature) {
+            println("Отправляются данные о температуре")
+        } else if (weatherData is PrecipitationAmount) {
+            println("Отправляются данные о влажности")
         }
     }
+
 }
 
 fun main() {
