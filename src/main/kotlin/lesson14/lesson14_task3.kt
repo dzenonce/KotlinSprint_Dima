@@ -25,23 +25,40 @@ class Circle(
 
 class Rectangle(
     color: String,
-    val weigt: Double,
-    val heigt: Double,
+    val width: Double,
+    val height: Double,
 ) : Figure(color) {
 
-    override fun calculateArea(): Double = weigt * heigt
+    override fun calculateArea(): Double = width * height
 
-    override fun calculatePerimeter(): Double = (weigt + heigt) * 2
+    override fun calculatePerimeter(): Double = (width + height) * 2
 
 }
 
 fun main() {
 
-    val circle1 = Circle(WHITE_COLOR, 4.0)
-    val rectangle1 = Rectangle(WHITE_COLOR, 3.0, 4.0)
+    val circle1 = Circle(
+        color = WHITE_COLOR,
+        radius = 4.0,
+    )
 
-    val circle2 = Circle(BLACK_COLOR, 6.0)
-    val rectangle2 = Rectangle(BLACK_COLOR, 2.0, 7.0)
+    val rectangle1 = Rectangle(
+        color = WHITE_COLOR,
+        width = 3.0,
+        height = 4.0,
+        )
+
+    val circle2 = Circle(
+        BLACK_COLOR,
+        radius = 6.0,
+        )
+
+    val rectangle2 = Rectangle(
+        BLACK_COLOR,
+        width = 2.0,
+        height = 7.0,
+    )
+
 
     val figureList = listOf(circle1, rectangle1, circle2, rectangle2)
 
