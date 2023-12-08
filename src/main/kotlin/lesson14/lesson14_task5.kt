@@ -26,27 +26,13 @@ class Chat {
 
     fun printChat() {
 
-        val groupedByIdParent = messageList.groupBy { it.id }
         val groupedChildMessage = childMessageList.groupBy { it.parentMessageId }
 
-        for (parentKey in groupedByIdParent.keys) {
-            for (childrenKey in groupedChildMessage.keys) {
+        for (message in messageList) {
+            println("${message.author}: ${message.text}")
 
-                if (groupedChildMessage.keys.contains(parentKey)) {
-
-                    groupedByIdParent[parentKey]?.forEach() {
-                        println("${it.author}: ${it.text}")
-                    }
-                    groupedChildMessage[childrenKey]?.forEach() {
-                        println("\t${it.author}: ${it.text}")
-                    }
-
-                } else {
-                    groupedByIdParent[parentKey]?.forEach() {
-                        println("${it.author}: ${it.text}")
-                    }
-
-                }
+            groupedChildMessage[message.id]?.forEach() {
+                println("\t${it.author}: ${it.text}")
             }
         }
     }
