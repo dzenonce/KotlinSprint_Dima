@@ -79,7 +79,6 @@ fun main() {
         passengerCount = 2,
     )
 
-
     truck.loadCargo()
     truck.loadPassenger()
     truck.startEngine()
@@ -103,6 +102,5 @@ fun main() {
     car2.driveCar()
     car2.stopCar()
     car2.unloadPassenger()
-
 
 }
