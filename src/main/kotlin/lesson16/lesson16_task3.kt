@@ -19,6 +19,4 @@ fun main() {
     println("Введите пароль:")
     println(user1.validatePassword(readln()))
 
-
-
 }
