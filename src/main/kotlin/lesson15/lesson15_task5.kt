@@ -17,69 +17,52 @@ interface MovementCar {
 
 interface TransportationPassenger {
 
-    fun loadPassenger()
-    fun unloadPassenger()
+    val passengerCount: Int
+    val maxPassenger: Int
+
+    fun loadPassenger() {
+        val passengerLoadResult =
+            if (passengerCount <= maxPassenger) "Берем $passengerCount пассажира с собой"
+            else "Максимальное кол-во пассажиров $maxPassenger"
+
+        println(passengerLoadResult)
+    }
+
+    fun unloadPassenger() {
+        println("Высаживаем $passengerCount человек")
+    }
 
 }
 
 interface TransportationCargo {
 
-    fun loadCargo()
-    fun unloadCargo()
+    val cargoQuantity: Int
+    val maxCargoCapacity: Int
 
-}
-
-abstract class Transport(
-    val passengerCount: Int,
-) : MovementCar, TransportationPassenger
-
-class Truck(
-    passengerCount: Int,
-    val cargoQuantity: Int,
-) : Transport(passengerCount), TransportationCargo {
-
-    override fun loadPassenger() {
-        val passengerLoadResult =
-            if (passengerCount <= MAX_PASSENGER_FOR_TRUCK) "Берем $passengerCount пассажира с собой"
-            else "Максимальное кол-во пассажиров $MAX_PASSENGER_FOR_TRUCK"
-
-        println(passengerLoadResult)
-    }
-
-    override fun unloadPassenger() {
-        println("Высаживаем $passengerCount человек")
-    }
-
-    override fun loadCargo() {
-        val resultLoadCargo = if (cargoQuantity <= MAX_CARGO_CAPACITY_TONNAGE) "Загружаем $cargoQuantity кг груза!"
-        else "Максимально допустимый вес груза $MAX_CARGO_CAPACITY_TONNAGE"
+    fun loadCargo() {
+        val resultLoadCargo = if (cargoQuantity <= maxCargoCapacity) "Загружаем $cargoQuantity кг груза!"
+        else "Максимально допустимый вес груза $maxCargoCapacity"
 
         println(resultLoadCargo)
     }
 
-    override fun unloadCargo() {
+    fun unloadCargo() {
         println("Разгружаем $cargoQuantity кг груза!")
     }
+
 }
+
+class Truck(
+    override val passengerCount: Int,
+    override val maxPassenger: Int = 1,
+    override val cargoQuantity: Int,
+    override val maxCargoCapacity: Int = 2000,
+) : MovementCar, TransportationCargo, TransportationPassenger
 
 class PassengerCar(
-    passengerCount: Int,
-) : Transport(passengerCount) {
-
-    override fun loadPassenger() {
-        val passengerLoadResult =
-            if (passengerCount <= MAX_PASSENGER_FOR_PASSENGER_CAR) "Берем $passengerCount человек с собой"
-            else "Максимальное кол-во пассажиров $MAX_PASSENGER_FOR_PASSENGER_CAR"
-
-        println(passengerLoadResult)
-
-    }
-
-    override fun unloadPassenger() {
-        println("Высаживаем $passengerCount человек")
-    }
-
-}
+    override val passengerCount: Int,
+    override val maxPassenger: Int = 3,
+) : MovementCar, TransportationPassenger
 
 fun main() {
 
@@ -123,7 +106,3 @@ fun main() {
 
 
 }
-
-const val MAX_PASSENGER_FOR_PASSENGER_CAR = 3
-const val MAX_PASSENGER_FOR_TRUCK = 1
-const val MAX_CARGO_CAPACITY_TONNAGE = 2000
