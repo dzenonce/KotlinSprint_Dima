@@ -16,7 +16,7 @@ class GameCharacter(
 
     fun heal() {
 
-        when(healt) {
+        when (healt) {
             100 -> println(" $name, лечиться не нужно")
             0 -> println(" $name, лечиться уже поздно")
             else -> {
