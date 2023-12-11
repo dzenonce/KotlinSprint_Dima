@@ -1,17 +1,17 @@
 package lesson16
 
+import kotlin.math.pow
+
 class CircleTwo(
     private val radius: Double,
 ) {
 
-    private val pi = 3.14
-
     fun calculateCircle() {
-        println((2 * pi) * radius)
+        println(2 * PI * radius)
     }
 
     fun calculateArea() {
-        println((pi * radius) * radius)
+        println(PI * radius.pow(2))
     }
 
 }
@@ -28,3 +28,4 @@ fun main() {
 
 }
 
+private const val PI = 3.14
