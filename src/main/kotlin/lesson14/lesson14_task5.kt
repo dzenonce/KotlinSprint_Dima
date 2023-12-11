@@ -5,13 +5,14 @@ class Chat {
     val messageList: MutableList<Message> = mutableListOf()
     val childMessageList: MutableList<ChildMessage> = mutableListOf()
 
-    fun addMessage(_author: String, _text: String) {
+    fun addMessage(_author: String, _text: String): Message {
         val newMessage = Message(
             id = messageList.size,
             author = _author,
             text = _text,
         )
         messageList.add(newMessage)
+        return newMessage
     }
 
     fun addThreadMessage(_author: String, _text: String, _parentMessageId: Int) {
@@ -56,13 +57,13 @@ fun main() {
 
     val chat = Chat()
 
-    chat.addMessage("Dima", "Привет 1")
+    val newMessage = chat.addMessage("Dima", "Привет 1")
 
-    chat.addThreadMessage("None", "Привет 2", chat.messageList[0].id)
-    chat.addThreadMessage("ANone", "Привет 3", chat.messageList[0].id)
+    chat.addThreadMessage("None", "Привет 2", newMessage.id)
+    chat.addThreadMessage("ANone", "Привет 3", newMessage.id)
 
-    chat.addMessage("Dima1", "Привет 2")
-    chat.addThreadMessage("ANone", "Привет 3", chat.messageList[1].id)
+    val newMessage2 = chat.addMessage("Dima1", "Привет 2")
+    chat.addThreadMessage("ANone", "Привет 3", newMessage2.id)
 
     chat.printChat()
 
