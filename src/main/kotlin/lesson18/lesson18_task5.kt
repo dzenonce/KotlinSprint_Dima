@@ -1,71 +1,38 @@
 package lesson18
 
-open class Screen {
+class Screen {
 
-    fun draw(figure: LapInt) {
-        println("Нарисован круг: x - ${figure.x} y - ${figure.y}")
+    fun draw(x: Int, y: Int, figure: Figure1) {
+        println("Нарисован объект в ${figure.name} координатах x: $x, y: $y")
     }
 
-    fun draw(figure: LapDouble) {
-        println("Нарисован круг: x - ${figure.x} y - ${figure.y}")
-    }
-
-    fun draw(figure: SquareInt) {
-        println("Нарисован квадрат: x - ${figure.x} y - ${figure.y}")
-    }
-
-    fun draw(figure: SquareDouble) {
-        println("Нарисован квадрат: x - ${figure.x} y - ${figure.y}")
-    }
-
-    fun draw(figure: PointInt) {
-        println("Нарисована точка: x - ${figure.x} y - ${figure.y}")
-    }
-
-    fun draw(figure: PointDouble) {
-        println("Нарисована точка: x - ${figure.x} y - ${figure.y}")
+    fun draw(x: Double, y: Double, figure: Figure1) {
+        println("Нарисован объект в ${figure.name} координатах x: $x, y: $y")
     }
 
 }
 
-class LapInt(
-    val x: Int,
-    val y: Int,
-) : Screen()
+abstract class Figure1(
+    val name: String,
+)
 
-class LapDouble(
-    val x: Double,
-    val y: Double,
-) : Screen()
+class Lap(
+    name: String = "Круг",
+) : Figure1(name)
 
-class SquareInt(
-    val x: Int,
-    val y: Int,
-) : Screen()
+class Square(
+    name: String = "Квадрат",
+) : Figure1(name)
 
-class SquareDouble(
-    val x: Double,
-    val y: Double,
-) : Screen()
-
-class PointInt(
-    val x: Int,
-    val y: Int,
-) : Screen()
-
-class PointDouble(
-    val x: Double,
-    val y: Double,
-) : Screen()
+class Point(
+    name: String = "Точка",
+) : Figure1(name)
 
 fun main() {
 
     val screen = Screen()
 
-    val lap = LapInt(4, 3)
-    val lap1 = LapDouble(3.4, 2.4)
-
-    screen.draw(lap)
-    screen.draw(lap1)
+    screen.draw(1, 2, Lap())
+    screen.draw(1.3, 2.5, Point())
 
 }
