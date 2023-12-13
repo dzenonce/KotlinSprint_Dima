@@ -1,16 +1,16 @@
 package lesson16
 
 class GameCharacter(
-    val name: String,
+    private val name: String,
     private var healt: Int = 100,
     var damage: Int,
 ) {
 
-    fun takeDamage(player: GameCharacter) {
+    fun takeDamage(damage: Int) {
 
-        healt -= player.damage
+        healt -= damage
 
-        println("$name, получает удар от ${player.name} \n Уровень здоровья: $healt")
+        println("$name, получает удар. \n Уровень здоровья: $healt")
         if (healt <= 0) diedCharacter()
     }
 
@@ -51,15 +51,15 @@ fun main() {
 
     mordovorot.heal()
 
-    subzero.takeDamage(mordovorot)
+    subzero.takeDamage(mordovorot.damage)
     subzero.heal()
 
-    mordovorot.takeDamage(subzero)
-    mordovorot.takeDamage(subzero)
+    mordovorot.takeDamage(subzero.damage)
+    mordovorot.takeDamage(subzero.damage)
 
-    subzero.takeDamage(mordovorot)
-    subzero.takeDamage(mordovorot)
-    subzero.takeDamage(mordovorot)
+    subzero.takeDamage(mordovorot.damage)
+    subzero.takeDamage(mordovorot.damage)
+    subzero.takeDamage(mordovorot.damage)
     subzero.heal()
 
 }
