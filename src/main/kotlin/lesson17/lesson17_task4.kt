@@ -1,29 +1,34 @@
 package lesson17
 
-class Package1 {
+class Package1(
+    private val number: Int,
+    private val _location: String,
+    private var displacementCounter: Int = 0,
+) {
 
-    var number: Int = 0
-
-    var location: String = "Старт"
-        get() = field
+    var location: String = _location
         set(value) {
             displacementCounter++
             field = value
         }
 
-    var displacementCounter: Int = 0
+    fun printPackageInfo() {
+        println("Номер заказа: ${number}: ${location}, ${displacementCounter}")
+    }
 
 }
 
 fun main() {
 
-    val package1 = Package1()
+    val package1 = Package1(
+        number = 1,
+        _location = "Одинцовский район",
+    )
 
-    println("${package1.number}: ${package1.location}, ${package1.displacementCounter}")
+    package1.printPackageInfo()
 
-    package1.number = 1
     package1.location = "Изменилось"
 
-    println("${package1.number}: ${package1.location}, ${package1.displacementCounter}")
+    package1.printPackageInfo()
 
 }
