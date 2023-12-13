@@ -1,8 +1,8 @@
 package lesson18
 
-open class RollDiceGame {
+abstract class RollDiceGame {
 
-    open fun rollDice() {}
+    abstract fun rollDice()
 
 }
 
