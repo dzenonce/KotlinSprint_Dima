@@ -21,7 +21,7 @@ fun main() {
 
     val lot = Quiz(
         _question = "Сколько в среднем весит слон",
-        _responce = "5 тонн"
+        _responce = "5 тонн",
     )
 
     println("${lot.question}: ${lot.responce}")
