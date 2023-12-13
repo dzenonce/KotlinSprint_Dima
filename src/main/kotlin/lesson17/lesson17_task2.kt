@@ -1,22 +1,26 @@
 package lesson17
 
-class Ship {
+class Ship(
+    private val _name: String,
+    val averageSpeed: Int,
+    val homePort: String,
+) {
 
-    var name: String = "Shipper"
+    var name: String = _name
         get() = field
         set(value) {
-            println("Данное поле меньять нельзя")
+            println("Данное поле менять нельзя")
         }
-
-    var averageSpeed: Double = 0.0
-
-    var homePort: String = "Silent Harbor"
 
 }
 
 fun main() {
 
-    val ship = Ship()
+    val ship = Ship(
+        _name = "SpeedBoat",
+        averageSpeed = 55,
+        homePort = "Silent Home",
+    )
 
     println(ship.name)
 
