@@ -1,26 +1,28 @@
 package lesson17
 
-class Quiz {
+class Quiz(
+    private val _question: String,
+    private val _responce: String,
+) {
 
-    var question: String = ""
+    val question = _question
+        get() = field
+
+    var responce = _responce
         get() = field
         set(value) {
             field = value
         }
 
-    var responce: String = ""
-        set(value) {
-            field = value
-        }
 
 }
 
 fun main() {
 
-    val lot = Quiz()
-
-    lot.question = "Вопрос"
-    lot.responce = "Ответ"
+    val lot = Quiz(
+        _question = "Сколько в среднем весит слон",
+        _responce = "5 тонн"
+    )
 
     println("${lot.question}: ${lot.responce}")
 
