@@ -1,27 +1,16 @@
 package lesson19
 
-enum class Category {
+enum class Category(
+    val categoryName: String,
+) {
 
-    CLOTHING {
-        override fun getCategory(): String {
-            return "Одежда"
-        }
-    },
+    CLOTHING("Одежда"),
+    STATIONERY("Канцелярские товары"),
+    MISCELLANEOUS("Другое");
 
-    STATIONERY {
-        override fun getCategory(): String {
-            return "Канцелярские товары"
-        }
-    },
-
-    MISCELLANEOUS {
-        override fun getCategory(): String {
-            return "Другое"
-        }
-    };
-
-    abstract fun getCategory(): String
-
+    fun getCategoryName() {
+        println(categoryName)
+    }
 }
 
 class Product(
@@ -34,13 +23,15 @@ class Product(
         println("""
            Название: $name
            Номер: $id
-           Категория: ${category.getCategory()}
+           Категория: ${category.categoryName}
         """.trimIndent())
     }
 
 }
 
 fun main() {
+
+    Category.CLOTHING.getCategoryName()
 
     val socks = Product(
         name = "Носки",
