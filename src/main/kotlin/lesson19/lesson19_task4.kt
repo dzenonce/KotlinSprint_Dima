@@ -1,7 +1,7 @@
 package lesson19
 
 enum class Bullet(
-    val damege: Int,
+    val damage: Int,
 ) {
 
     BLUE(5),
@@ -19,7 +19,7 @@ class Tank {
     }
 
     fun shoot() {
-        println("Выстрел, урон: ${bulletInGun?.damege}")
+        println("Выстрел, урон: ${bulletInGun?.damage}")
     }
 
 }
