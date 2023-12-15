@@ -1,7 +1,5 @@
 package lesson20
 
-import kotlin.math.max
-
 class Personage(
     val name: String,
     var currentHealth: Int,
