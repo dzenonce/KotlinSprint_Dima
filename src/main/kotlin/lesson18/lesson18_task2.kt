@@ -1,30 +1,30 @@
 package lesson18
 
-abstract class RollDiceGame {
+abstract class Dice {
 
-    abstract fun rollDice()
+    abstract fun rollDice1()
 
 }
 
-class DiceEightFacets : RollDiceGame() {
+class DiceEightFacets : Dice() {
 
-    override fun rollDice() {
+    override fun rollDice1() {
         println("Кость с 8-ю гранями: ${(1..8).random()}")
     }
 
 }
 
-class DiceSixFacets : RollDiceGame() {
+class DiceSixFacets : Dice() {
 
-    override fun rollDice() {
+    override fun rollDice1() {
         println("Кость с 6-ю гранями: ${(1..6).random()}")
     }
 
 }
 
-class DiceFourFacets : RollDiceGame() {
+class DiceFourFacets : Dice() {
 
-    override fun rollDice() {
+    override fun rollDice1() {
         println("Кость с 4-я гранями: ${(1..4).random()}")
     }
 
@@ -36,8 +36,8 @@ fun main() {
     val sixFacets = DiceSixFacets()
     val fourFacets = DiceFourFacets()
 
-    val diceList = listOf<RollDiceGame>(eightFacets, sixFacets, fourFacets)
+    val diceList = listOf<Dice>(eightFacets, sixFacets, fourFacets)
 
-    diceList.forEach { it.rollDice() }
+    diceList.forEach { it.rollDice1() }
 
 }
