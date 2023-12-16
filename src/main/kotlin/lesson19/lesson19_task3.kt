@@ -2,10 +2,12 @@ package lesson19
 
 class Spaceship {
 
-    fun takeOff(): Nothing = throw NotImplementedError()
+    fun takeOff() {
+        TODO()
+    }
 
     fun toLand() {
-        TODO()
+        // TODO нужно информация о дополнительной логике
     }
 
     fun shootAtAsteroid() {}
