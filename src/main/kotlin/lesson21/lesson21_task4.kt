@@ -1,7 +1,6 @@
 package lesson21
 
 import java.io.File
-import java.lang.Appendable
 
 fun File.appendNewWord(word: String) {
 
