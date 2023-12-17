@@ -6,10 +6,7 @@ fun main() {
 
     val lambdList: MutableList<() -> Unit> = mutableListOf()
 
-    elementList.map {
-        val lambda: () -> Unit = { println("Нажат элемент $it") }
-        lambdList.add(lambda)
-    }
+    elementList.map { lambdList.add({ println("Нажат элемент $it") }) }
 
     val evenElements = lambdList.filterIndexed { index, i -> index % 2 == 0 }
     evenElements.forEach { it() }
