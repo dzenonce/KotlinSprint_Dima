@@ -4,8 +4,8 @@ fun main() {
 
     val username = "Ваня"
 
-    val SplashScreen: () -> String = { "С наступающим Новым Годом, $username!" }
+    val splashScreen: () -> String = { "С наступающим Новым Годом, $username!" }
 
-    println(SplashScreen())
+    println(splashScreen())
 
 }
