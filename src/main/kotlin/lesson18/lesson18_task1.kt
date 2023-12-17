@@ -55,4 +55,3 @@ fun main() {
     order2.printOrderInfo()
 
 }
-
