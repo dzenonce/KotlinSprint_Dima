@@ -7,7 +7,7 @@ class Personage1(
 
 fun main() {
 
-    val key: (Personage1) -> Unit = { pers: Personage1 ->
+    val giveKey: (Personage1) -> Unit = { pers: Personage1 ->
         pers.hasAKey = true
         println("${pers.name} нашел ключ")
     }
@@ -25,7 +25,7 @@ fun main() {
 
     openTheDoor(pers)
 
-    key(pers)
+    giveKey(pers)
     
     openTheDoor(pers)
 
