@@ -2,6 +2,8 @@ package lesson20
 
 class Robot {
 
+    private var modifier: (String) -> Unit = { println(it) }
+
     private val phraseList: List<String> = listOf(
         "Привет! Как я могу помочь вам сегодня?",
         "Интересный вопрос! Дайте мне знать, что вы хотели бы узнать.",
@@ -10,10 +12,10 @@ class Robot {
         "Понимаю. Расскажите мне подробнее о вашем запросе.",
     )
 
-    private fun say() = phraseList.random()
+    fun say() = modifier(phraseList.random())
 
-    fun setModifier(lambda: (String) -> Unit) {
-        lambda(say())
+    fun setModifier(_modifier: (String) -> Unit) {
+        modifier = _modifier
     }
 
 }
@@ -22,16 +24,14 @@ fun main() {
 
     val robotToto = Robot()
 
-    val emptyModifier: (String) -> Unit = {string: String ->
-        println(string)
-    }
-
-    robotToto.setModifier(emptyModifier)
+    robotToto.say()
 
     val reversModifier: (String) -> Unit = { toRevers: String ->
         println(toRevers.split("").reversed().joinToString(""))
     }
 
     robotToto.setModifier(reversModifier)
+
+    robotToto.say()
 
 }
