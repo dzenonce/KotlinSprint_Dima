@@ -6,8 +6,8 @@ class ViewModel(
 
     fun loadData(): MainScreenState {
         return when (mainScreenState.data) {
-            null -> this.mainScreenState
-            else -> this.mainScreenState.copy(isLoading = true)
+            null -> this.mainScreenState.copy(isLoading = true)
+            else -> this.mainScreenState
         }
     }
 
@@ -25,11 +25,7 @@ fun main() {
         data = null,
     )
 
-    val viewModel = ViewModel(
-        mainScreenState = mainScreen1,
-    )
-
-    val newActivity = viewModel.loadData()
+    val newActivity = ViewModel(mainScreenState = mainScreen1).loadData()
 
     println(newActivity)
 }
