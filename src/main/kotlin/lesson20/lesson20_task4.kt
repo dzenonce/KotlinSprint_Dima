@@ -4,10 +4,10 @@ fun main() {
 
     val elementList = listOf("Element1", "SomeElement2", "Some3", "Socks5", "ProxyList")
 
-    val lambdList: MutableList<() -> Unit> = mutableListOf()
+    val lambdList = elementList.map { { println("Нажат элемент $it") } }
 
-    elementList.map { lambdList.add({ println("Нажат элемент $it") }) }
+    lambdList.forEachIndexed { index, function ->
+        if (index % 2 == 0) function()
+    }
 
-    val evenElements = lambdList.filterIndexed { index, i -> index % 2 == 0 }
-    evenElements.forEach { it() }
 }
